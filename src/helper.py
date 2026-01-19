@@ -1,8 +1,18 @@
 from typing import List
+import torch
 from langchain.document_loaders import PyPDFLoader, DirectoryLoader
 from langchain.schema import Document
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+def load_pdf_file(data):
+    loader= DirectoryLoader(data,
+                            glob="*.pdf",
+                            loader_cls=PyPDFLoader)
+
+    documents=loader.load()
+
+    return documents
 
 
 def filter_to_minimal_docs(documents: List[Document]) -> List[Document]:

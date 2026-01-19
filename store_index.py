@@ -19,7 +19,7 @@ extracted_data=load_pdf_file(data='data/')
 filter_data = filter_to_minimal_docs(extracted_data)
 text_chunks=text_split(filter_data)
 
-embeddings = download_embedding()
+embeddings = download_embeddings()
 
 pinecone_api_key = PINECONE_API_KEY
 pc = Pinecone(api_key=pinecone_api_key)
